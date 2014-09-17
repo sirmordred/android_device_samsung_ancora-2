@@ -156,6 +156,7 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/ancora/recovery/recover
 TARGET_RECOVERY_INITRC := device/samsung/ancora/config/init.recovery.rc
 TARGET_RECOVERY_FSTAB := device/samsung/ancora/config/fstab.qcom
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+TARGET_USERIMAGES_USE_EXT4 := true
 # End recovery stuff
 
 # TWRP recovery stuff
@@ -166,6 +167,7 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 DEVICE_RESOLUTION := 480x800
 TW_TARGET_USES_QCOM_BSP := true
 TW_SCREEN_BLANK_ON_BOOT := true
+TW_INCLUDE_JB_CRYPTO := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/msm_fb.196609/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_CUSTOM_POWER_BUTTON := 107
