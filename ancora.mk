@@ -129,13 +129,7 @@ PRODUCT_PACKAGES += \
     libdashplayer
 
 PRODUCT_PACKAGES += \
-    badblocks \
     e2fsck \
-    mke2fs \
-    mke2fs.conf \
-    resize2fs \
-    tune2fs \
-    make_ext4fs \
     setup_fs
 
 PRODUCT_PACKAGES += \
