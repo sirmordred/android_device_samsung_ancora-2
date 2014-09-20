@@ -151,6 +151,9 @@ PRODUCT_PACKAGES += qcmediaplayer
 # Torch
 PRODUCT_PACKAGES += Torch
 
+# Open-source sensors
+PRODUCT_PACKAGES += sensors.ancora
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
