@@ -98,13 +98,13 @@ AkmSensor::AkmSensor()
     if (akm_is_sensor_enabled(SENSOR_TYPE_MAGNETIC_FIELD))  {
         mEnabled |= 1<<MagneticField;
 	if  (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_MAGV_X), &absinfo)) {
-	    mPendingEvents[MagneticField].magnetic.x = value * CONVERT_M;
+	    mPendingEvents[MagneticField].magnetic.x = value * CONVERT_M_X;
 	}
 	if  (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_MAGV_Y), &absinfo)) {
-	    mPendingEvents[MagneticField].magnetic.y = value * CONVERT_M;
+	    mPendingEvents[MagneticField].magnetic.y = value * CONVERT_M_Y;
 	}
 	if  (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_MAGV_Z), &absinfo)) {
-	    mPendingEvents[MagneticField].magnetic.z = value * CONVERT_M;
+	    mPendingEvents[MagneticField].magnetic.z = value * CONVERT_M_Z;
 	}
     }
 }
@@ -288,15 +288,15 @@ void AkmSensor::processEvent(int code, int value)
     switch (code) {
         case EVENT_TYPE_MAGV_X:
             mPendingMask |= 1<<MagneticField;
-            mPendingEvents[MagneticField].magnetic.x = value * CONVERT_M;
+            mPendingEvents[MagneticField].magnetic.x = value * CONVERT_M_X;
             break;
         case EVENT_TYPE_MAGV_Y:
             mPendingMask |= 1<<MagneticField;
-            mPendingEvents[MagneticField].magnetic.y = value * CONVERT_M;
+            mPendingEvents[MagneticField].magnetic.y = value * CONVERT_M_Y;
             break;
         case EVENT_TYPE_MAGV_Z:
             mPendingMask |= 1<<MagneticField;
-            mPendingEvents[MagneticField].magnetic.z = value * CONVERT_M;
+            mPendingEvents[MagneticField].magnetic.z = value * CONVERT_M_Z;
             break;
 
 	case EVENT_TYPE_YAW:
