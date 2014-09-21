@@ -107,8 +107,7 @@ AkmSensor::AkmSensor()
 	    mPendingEvents[MagneticField].magnetic.z = value * CONVERT_M_Z;
 	}
     }
-}
-    if (akm_is_sensor_enabled(SENSOR_TYPE_ORIENTATION))
+    if (akm_is_sensor_enabled(SENSOR_TYPE_ORIENTATION))  {
         mEnabled |= 1<<Orientation;
 	if  (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_YAW), &absinfo)) {
 	    mPendingEvents[Orientation].orientation.azimuth = value * CONVERT_OR;
@@ -120,8 +119,7 @@ AkmSensor::AkmSensor()
 	    mPendingEvents[Orientation].orientation.roll = value * CONVERT_OR;
 	}
     }
-}
-    if (akm_is_sensor_enabled(SENSOR_TYPE_ROTATION_VECTOR))
+    if (akm_is_sensor_enabled(SENSOR_TYPE_ROTATION_VECTOR)) {
         mEnabled |= 1<<RotationVector;
         if  (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_ROTVEC_X), &absinfo)) {
 	    mPendingEvents[RotationVector].data[0] = value * CONVERT_RV;
@@ -135,6 +133,7 @@ AkmSensor::AkmSensor()
 	if  (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_ROTVEC_W), &absinfo)) {
 	    mPendingEvents[RotationVector].data[3] = value * CONVERT_RV;
 	}
+    }
 }
 
 AkmSensor::~AkmSensor()
